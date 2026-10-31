@@ -1,165 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="public/logo-mark.png" type="image/png">
-<meta property="og:image" content="public/banner-web.jpg">
-<title>DigiCraftora — Design • Develop • Grow</title>
-<meta name="description" content="DigiCraftora website preview — website design, e-commerce, branding, SEO and digital marketing.">
-<style>
-:root{color-scheme:dark;--navy:#0b1b3a;--purple:#8b5cf6;--blue:#22d3ee;--ink:#e6ebf7;--muted:#9aa6c4;--line:#ffffff1a;--bg:#070d1f;--card:#0b1226}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#05070f;line-height:1.6}
-a{color:inherit;text-decoration:none}.announcement{background:linear-gradient(90deg,#0b1b3a,#1b1247);color:#fff;text-align:center;padding:9px 16px;font-size:13px}
-header{position:sticky;top:0;z-index:10;background:#05070fe6;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav{max-width:1160px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:850;font-size:21px;letter-spacing:-.5px}.brand img{width:auto;height:40px;object-fit:contain}.brand span{color:var(--purple)}
-nav{display:flex;gap:23px;align-items:center;font-size:14px;font-weight:650}nav a:hover{color:var(--purple)}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border-radius:999px;background:linear-gradient(110deg,var(--blue),#2563eb,var(--purple));color:#fff;font-weight:750;font-size:14px;box-shadow:0 0 28px -6px #22d3ee66;border:0;cursor:pointer}
-.btn.ghost{background:#ffffff0d;color:#fff;border:1px solid var(--line);box-shadow:none}
-.hero{background:radial-gradient(circle at 80% 15%,#8b5cf62e 0,transparent 32%),radial-gradient(circle at 5% 10%,#22d3ee1f 0,transparent 30%),linear-gradient(140deg,#05070f,#0b1b3a);overflow:hidden}
-.wrap{max-width:1160px;margin:auto;padding:0 22px}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:50px;padding-top:78px;padding-bottom:82px}
-.eyebrow{font-size:12px;letter-spacing:3px;font-weight:850;color:var(--purple);text-transform:uppercase}
-h1{font-size:clamp(40px,5vw,65px);line-height:1.08;letter-spacing:-2.5px;margin:16px 0 20px;color:#fff}
-.gradient{background:linear-gradient(100deg,var(--blue),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{font-size:18px;max-width:590px;color:var(--muted)}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.hero-art{border:1px solid var(--line);background:linear-gradient(145deg,#0d1530,#0a0f22);border-radius:32px;min-height:340px;display:flex;align-items:center;justify-content:center;box-shadow:0 25px 70px #00000066,0 0 60px -20px #8b5cf655;padding:35px;position:relative}
-.hero-art img{width:min(100%,430px);max-height:400px;object-fit:contain;filter:drop-shadow(0 0 24px #22d3ee55)}
-.float{position:absolute;bottom:23px;left:20px;background:#0d1530;color:#fff;border:1px solid var(--line);padding:11px 15px;border-radius:15px;box-shadow:0 10px 30px #0008;font-size:13px;font-weight:750}
-section.content{padding:74px 0}.section-head{text-align:center;max-width:680px;margin:0 auto 35px}.section-head h2{font-size:clamp(28px,3vw,40px);line-height:1.2;letter-spacing:-1.2px;margin:8px 0 12px;color:#fff}.section-head p{color:var(--muted);margin:0}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.card{border:1px solid var(--line);border-radius:20px;padding:24px;background:var(--card);transition:.2s}.card:hover{transform:translateY(-3px);box-shadow:0 0 34px -10px #22d3ee66;border-color:#22d3ee55}.ico{width:45px;height:45px;display:grid;place-items:center;border-radius:14px;background:#8b5cf626;font-size:23px}.card h3{margin:15px 0 7px;font-size:18px;color:#fff}.card p{margin:0;color:var(--muted);font-size:14px}
-.soft{background:var(--bg)}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.feature{background:var(--card);border:1px solid var(--line);padding:17px;border-radius:14px;font-weight:650}.feature b{color:#34d399;margin-right:8px}
-.founder{display:grid;grid-template-columns:.75fr 1.25fr;gap:38px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:26px;padding:30px}.founder img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:18px}.founder h2{font-size:34px;line-height:1.15;margin:8px 0;color:#fff}.muted{color:var(--muted)}
-.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.step{border:1px solid var(--line);border-radius:15px;padding:17px 10px;text-align:center;background:var(--card);font-weight:700}.step span{display:block;color:var(--purple);font-size:12px;margin-bottom:5px}
-.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.price{padding:23px;border:1px solid var(--line);border-radius:18px;background:var(--card)}.price h3{margin:0 0 7px;font-size:16px;color:#fff}.price strong{font-size:21px;background:linear-gradient(100deg,var(--blue),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
-.faq{max-width:800px;margin:auto}.faq details{border:1px solid var(--line);border-radius:14px;padding:17px 20px;margin:10px 0;background:var(--card)}.faq summary{font-weight:750;cursor:pointer}.faq details p{color:var(--muted);margin-bottom:0}
-.cta{background:linear-gradient(120deg,#0b1b3a,#3b1f9a);border:1px solid var(--line);color:white;text-align:center;border-radius:26px;padding:44px 24px}.cta h2{font-size:clamp(26px,3vw,38px);line-height:1.2;margin:0 0 12px}.cta p{color:#e1e5ff;margin:0 0 23px}
-footer{background:#02040a;border-top:1px solid var(--line);color:#e5e9f8;padding:35px 0 90px;margin-top:70px}.foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}.foot small{color:#b5bdd5}.foot a{color:white}
-.wa{position:fixed;right:20px;bottom:20px;background:#19b968;color:#fff;border-radius:999px;padding:13px 18px;font-weight:800;box-shadow:0 10px 30px #092c1c30;z-index:12}
-.note{font-size:12px;color:#8590ad;margin-top:12px}
-@media(max-width:800px){nav{display:none}.hero-grid{grid-template-columns:1fr;padding-top:55px;gap:30px}.cards,.prices{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(3,1fr)}.founder{grid-template-columns:1fr}.founder img{max-height:none}}
-@media(max-width:520px){.cards,.prices,.features{grid-template-columns:1fr}.hero-grid{padding-bottom:55px}.brand{font-size:18px}.brand img{width:35px;height:35px}.wrap{padding:0 17px}section.content{padding:55px 0}.founder{padding:18px}.steps{grid-template-columns:repeat(2,1fr)}h1{letter-spacing:-1.5px}}
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/digicraftora-logo.png" />
+    <title>DigiCraftora - Digital Agency Appointment Booking System</title>
+    <meta name="description" content="Design • Develop • Grow. Schedule your strategic engineering and growth consultation with DigiCraftora." />
+    <meta property="og:title" content="DigiCraftora - Digital Agency Appointment Booking System" />
+    <meta property="og:description" content="Design • Develop • Grow. Schedule your strategic engineering and growth consultation with DigiCraftora." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-[#131317] text-[#e4e1e7] min-h-screen antialiased selection:bg-[#4cd7f6]/30 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
 
-.book{max-width:760px;margin:auto;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 0 60px -24px #8b5cf666}
-.book form{display:grid;grid-template-columns:1fr 1fr;gap:14px}.book .full{grid-column:1/-1}
-.book label{display:block;font-size:13px;font-weight:700;margin-bottom:5px}.book input,.book select,.book textarea{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:12px;font:inherit;background:#070d1f;color:#fff}
-.book select option{background:#0b1226;color:#fff}.book input::placeholder{color:#667096}.book input:focus,.book select:focus,.book textarea:focus{outline:2px solid var(--purple);outline-offset:1px}
-.err{color:#ff7a80;font-size:12px;min-height:16px;margin-top:3px}.book .btn{width:100%;padding:14px}
-@media(max-width:600px){.book form{grid-template-columns:1fr}.book{padding:18px}}
-.social{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px}.social a{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:999px;border:1px solid var(--line);background:#ffffff0d;color:#fff;font-size:13px;font-weight:700;transition:.2s}.social a:hover{border-color:#22d3ee88;box-shadow:0 0 22px -6px #22d3ee88;color:#22d3ee}footer .social{margin:0;gap:8px}footer .social a{padding:8px;border-radius:50%}footer .social a span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-
-.hero-art{position:relative;min-height:0!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important;overflow:visible}
-.hero-art .ring{position:absolute;inset:-14px;border-radius:38px;background:linear-gradient(135deg,#22d3ee,#2563eb,#8b5cf6);filter:blur(26px);opacity:.45}
-.hero-art img.portrait{position:relative;width:100%;max-width:440px;max-height:none!important;aspect-ratio:1/1;object-fit:cover;border-radius:32px;border:1px solid #ffffff2e;box-shadow:0 30px 70px #000a;filter:none!important}
-.chip{position:absolute;display:flex;align-items:center;gap:10px;background:#0a1127e6;backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:16px;padding:10px 14px;box-shadow:0 14px 34px #0009}
-.chip b{display:block;font-size:13px;color:#fff;line-height:1.2}.chip small{display:block;font-size:11px;color:var(--muted)}
-.chip.c1{left:-18px;bottom:34px}.chip.c2{right:-8px;top:26px}
-.hero-grid>div:last-child{display:flex;justify-content:center}
-.svc{padding:0!important;overflow:hidden;position:relative}.svc .art{height:128px;background:radial-gradient(circle at 50% 0,#8b5cf633,transparent 70%),#080e20;border-bottom:1px solid var(--line);display:grid;place-items:center;padding:12px}
-.svc .art svg{width:100%;height:100%;max-width:250px}.svc .ico{position:absolute;top:100px;left:20px;width:42px;height:42px;font-size:20px;border:3px solid var(--card)}
-.svc h3{margin:34px 24px 7px!important}.svc p{margin:0 24px 24px!important}
-.svc:hover .art svg{transform:scale(1.05)}.svc .art svg{transition:transform .35s}
-.eyebrow::before,.eyebrow::after{content:"";display:inline-block;width:22px;height:1px;background:currentColor;opacity:.5;vertical-align:middle;margin:0 10px}
-.section-head .eyebrow{display:inline-block}
-.founder .portrait2{border:1px solid #ffffff22;box-shadow:0 0 50px -12px #8b5cf6aa}
-header.scrolled{box-shadow:0 10px 30px #0008}
-.steps{position:relative}.step{position:relative;transition:.25s}.step:hover{transform:translateY(-4px);border-color:#22d3ee55}
-.step span{font-size:15px;font-weight:800;background:linear-gradient(100deg,var(--blue),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
-.gallery{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:16px;align-items:stretch}
-.gallery figure{margin:0;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#02040a;position:relative}
-.gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}.gallery figure:hover img{transform:scale(1.04)}
-.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 12px;font-size:12px;font-weight:700;color:#fff;background:linear-gradient(transparent,#000c)}
-.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.js .reveal.in{opacity:1;transform:none}
-@media(max-width:800px){.gallery{grid-template-columns:1fr 1fr}.gallery figure:last-child{grid-column:1/-1}.chip.c1{left:6px}.chip.c2{right:6px}.hero-art img.portrait{max-width:340px}}
-@media(max-width:520px){.gallery{grid-template-columns:1fr}.hero-art img.portrait{max-height:none!important}.svc .art{height:118px}.svc .ico{top:90px}}
-@media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}}
-.nav .btn{white-space:nowrap}@media(max-width:520px){.nav{padding:12px 14px}.nav .btn{padding:10px 14px;font-size:13px}}
-.banner{display:block;border-radius:26px;overflow:hidden;border:1px solid #ffffff22;box-shadow:0 30px 80px -20px #000,0 0 70px -24px #8b5cf6aa;background:#02040a}
-.banner img{display:block;width:100%;height:auto}
-.banner-wrap{margin-top:-6px;padding:0 0 10px}
-.banner.yt{margin-top:18px;position:relative;transition:box-shadow .3s}.banner.yt:hover{box-shadow:0 30px 80px -20px #000,0 0 60px -10px #ff000066}
-@media(max-width:600px){.banner{border-radius:16px}}
-</style>
-</head>
-<body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset=".55" stop-color="#2563eb"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient><linearGradient id="g2" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#8b5cf6" stop-opacity=".55"/><stop offset="1" stop-color="#22d3ee" stop-opacity=".25"/></linearGradient></defs></svg>
-<div class="announcement">Now taking new projects. Request a free quote today.</div>
-<header><div class="nav">
-<a class="brand" href="#home"><img src="public/logo-mark.png" alt="" onerror="this.style.display='none'"><b style="font-weight:inherit"><span>Digi</span>Craftora</b></a>
-<nav><a href="#services">Services</a><a href="#about">About</a><a href="#process">Process</a><a href="#pricing">Pricing</a><a href="#book">Book</a><a href="#faq">FAQ</a></nav>
-<a class="btn" href="#book">Book an Appointment</a>
-</div></header>
-<main id="home">
-<div class="hero"><div class="wrap hero-grid">
-<div><div class="eyebrow">Design • Develop • Grow</div><h1>Build Your <span class="gradient">Digital Presence</span> with DigiCraftora</h1><p class="lead">Professional websites, creative branding, and digital solutions to help your business grow online.</p><div class="actions"><a class="btn" href="#book">Book an Appointment ↗</a><a class="btn ghost" href="#services">Explore Our Services</a></div><p class="note">Website design · Branding · SEO · Digital marketing</p></div>
-<div class="hero-art"><div class="ring"></div><img class="portrait" src="public/founder-portrait.jpg" alt="Mustafizur Rahaman, Founder & CEO of DigiCraftora" fetchpriority="high"><div class="chip c1"><img src="public/logo-mark.png" alt="" style="height:26px;width:auto"><span><b>DigiCraftora</b><small>Design • Develop • Grow</small></span></div><div class="chip c2"><span><b>Mustafizur Rahaman</b><small>Founder &amp; CEO</small></span></div></div>
-</div></div>
-<section class="banner-wrap"><div class="wrap reveal"><div class="banner"><img src="public/banner-web.jpg" alt="DigiCraftora: modern websites for growing businesses. Website design, e-commerce, logo, digital marketing, SEO and hosting." width="1983" height="793" loading="lazy"></div></div></section>
-<section class="content" id="services"><div class="wrap"><div class="section-head"><div class="eyebrow">What we do</div><h2>Our Services</h2><p>Everything you need to build and grow your online presence.</p></div>
-<div class="cards">
-<div class="card svc reveal"><div class="art"><svg viewBox="0 0 240 120" role="img" aria-label="Website design illustration" fill="none" stroke="url(#g1)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="14" width="180" height="92" rx="10" fill="url(#g2)"/><path d="M30 34h180"/><circle cx="43" cy="24" r="2.5" fill="#22d3ee" stroke="none"/><circle cx="53" cy="24" r="2.5" fill="#8b5cf6" stroke="none"/><circle cx="63" cy="24" r="2.5" fill="#2563eb" stroke="none"/><rect x="44" y="46" width="70" height="8" rx="4" fill="#22d3ee" stroke="none" opacity=".85"/><rect x="44" y="60" width="100" height="5" rx="2.5" fill="#fff" stroke="none" opacity=".35"/><rect x="44" y="70" width="86" height="5" rx="2.5" fill="#fff" stroke="none" opacity=".25"/><rect x="44" y="84" width="38" height="14" rx="7" fill="url(#g1)" stroke="none"/><rect x="150" y="46" width="46" height="52" rx="8"/><path d="M157 80l10-12 8 8 6-6 9 10"/></svg></div><div class="ico">💻</div><h3>Business Website Design</h3><p>Professional websites that present your brand clearly.</p></div>
-<div class="card svc reveal"><div class="art"><svg viewBox="0 0 240 120" role="img" aria-label="E-commerce illustration" fill="none" stroke="url(#g1)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="28" y="16" width="130" height="88" rx="10" fill="url(#g2)"/><rect x="40" y="30" width="34" height="34" rx="7"/><rect x="82" y="30" width="34" height="34" rx="7"/><rect x="124" y="30" width="24" height="34" rx="7"/><rect x="40" y="72" width="34" height="6" rx="3" fill="#fff" stroke="none" opacity=".4"/><rect x="82" y="72" width="34" height="6" rx="3" fill="#fff" stroke="none" opacity=".4"/><rect x="40" y="84" width="20" height="6" rx="3" fill="#22d3ee" stroke="none"/><rect x="82" y="84" width="20" height="6" rx="3" fill="#22d3ee" stroke="none"/><circle cx="188" cy="60" r="30" fill="url(#g2)"/><path d="M172 48h6l5 18h18l4-12h-26"/><circle cx="185" cy="74" r="2.5" fill="#22d3ee" stroke="none"/><circle cx="201" cy="74" r="2.5" fill="#22d3ee" stroke="none"/></svg></div><div class="ico">🛍️</div><h3>E-commerce Development</h3><p>Online stores built to sell and easy to manage.</p></div>
-<div class="card svc reveal"><div class="art"><svg viewBox="0 0 240 120" role="img" aria-label="Booking website illustration" fill="none" stroke="url(#g1)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="52" y="14" width="136" height="94" rx="12" fill="url(#g2)"/><path d="M52 40h136M82 8v14M158 8v14"/><g fill="#fff" stroke="none" opacity=".4"><circle cx="76" cy="58" r="3"/><circle cx="100" cy="58" r="3"/><circle cx="124" cy="58" r="3"/><circle cx="148" cy="58" r="3"/><circle cx="172" cy="58" r="3"/><circle cx="76" cy="78" r="3"/><circle cx="100" cy="78" r="3"/><circle cx="172" cy="78" r="3"/><circle cx="76" cy="96" r="3"/><circle cx="100" cy="96" r="3"/></g><circle cx="124" cy="78" r="11" fill="url(#g1)" stroke="none"/><path d="M118 78l4 4 8-8" stroke="#fff"/><rect x="138" y="72" width="22" height="12" rx="6" stroke="#22d3ee"/></svg></div><div class="ico">📅</div><h3>Salon & Booking Websites</h3><p>Appointment-ready sites for service businesses.</p></div>
-<div class="card svc reveal"><div class="art"><svg viewBox="0 0 240 120" role="img" aria-label="Logo and brand identity illustration" fill="none" stroke="url(#g1)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="96" cy="60" r="34" fill="url(#g2)"/><circle cx="130" cy="60" r="34"/><path d="M178 26l22 22-40 40-26 4 4-26z" fill="url(#g2)"/><path d="M186 34l8 8"/><g stroke="none"><circle cx="46" cy="104" r="6" fill="#22d3ee"/><circle cx="64" cy="104" r="6" fill="#2563eb"/><circle cx="82" cy="104" r="6" fill="#8b5cf6"/></g></svg></div><div class="ico">🎨</div><h3>Logo & Brand Identity</h3><p>Memorable identities and consistent visuals.</p></div>
-<div class="card svc reveal"><div class="art"><svg viewBox="0 0 240 120" role="img" aria-label="SEO illustration" fill="none" stroke="url(#g1)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="98" cy="54" r="34" fill="url(#g2)"/><path d="M124 80l30 28" stroke-width="5"/><path d="M80 62l12-14 10 8 14-18"/><path d="M110 38h6v6"/><rect x="168" y="62" width="10" height="34" rx="3" fill="#22d3ee" stroke="none" opacity=".8"/><rect x="184" y="46" width="10" height="50" rx="3" fill="#2563eb" stroke="none"/><rect x="200" y="30" width="10" height="66" rx="3" fill="#8b5cf6" stroke="none"/></svg></div><div class="ico">🔎</div><h3>SEO Services</h3><p>Search-friendly structure and on-page optimization.</p></div>
-<div class="card svc reveal"><div class="art"><svg viewBox="0 0 240 120" role="img" aria-label="Digital marketing illustration" fill="none" stroke="url(#g1)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M30 96h180"/><rect x="42" y="68" width="18" height="28" rx="4" fill="#22d3ee" stroke="none" opacity=".8"/><rect x="72" y="54" width="18" height="42" rx="4" fill="#2563eb" stroke="none"/><rect x="102" y="40" width="18" height="56" rx="4" fill="#8b5cf6" stroke="none"/><path d="M40 52l44-18 34 12 60-30" stroke-width="3"/><path d="M164 18h20v20"/><rect x="146" y="62" width="62" height="30" rx="10" fill="url(#g2)"/><path d="M160 74h34M160 82h20"/></svg></div><div class="ico">📈</div><h3>Digital Marketing</h3><p>Creative campaigns to grow your audience.</p></div>
-</div></div></section>
-<section class="content soft"><div class="wrap"><div class="section-head"><div class="eyebrow">Why DigiCraftora</div><h2>Digital solutions built around your goals</h2><p>Clear communication and a practical approach from idea to launch.</p></div><div class="features">
-<div class="feature"><b>✓</b> Responsive designs</div><div class="feature"><b>✓</b> Modern development</div><div class="feature"><b>✓</b> Clear communication</div><div class="feature"><b>✓</b> Performance optimization</div><div class="feature"><b>✓</b> SEO-friendly structure</div><div class="feature"><b>✓</b> Ongoing support options</div>
-</div></div></section>
-<section class="content" id="about"><div class="wrap"><div class="founder"><img class="portrait2" src="public/founder.jpg" alt="Mustafizur Rahaman, Founder & CEO of DigiCraftora" loading="lazy" onerror="this.style.display='none'"><div><div class="eyebrow">Meet the founder</div><h2>Mustafizur Rahaman</h2><p class="muted">Founder & CEO, DigiCraftora</p><p>Hi, I'm the founder of DigiCraftora. I help businesses build a strong online presence through professional website design, e-commerce development, logo and graphic design, SEO, and digital marketing.</p><p>My mission is to help businesses Design, Develop, and Grow with modern digital solutions.</p><strong class="gradient">DigiCraftora — Design • Develop • Grow</strong></div></div></div></section>
-<section class="content soft" id="process"><div class="wrap"><div class="section-head"><div class="eyebrow">How we work</div><h2>A clear path from idea to launch</h2></div><div class="steps"><div class="step"><span>01</span>Discovery</div><div class="step"><span>02</span>Planning</div><div class="step"><span>03</span>Design</div><div class="step"><span>04</span>Development</div><div class="step"><span>05</span>Testing</div><div class="step"><span>06</span>Launch</div></div></div></section>
-<section class="content" id="brand" style="background:radial-gradient(ellipse at 50% 0,#8b5cf622,transparent 65%),radial-gradient(ellipse at 90% 100%,#22d3ee14,transparent 55%)"><div class="wrap"><div class="section-head reveal"><div class="eyebrow">Brand identity</div><h2>A brand that looks as good as it works</h2><p>The DigiCraftora identity: consistent logo, colours and typography across web and social.</p></div>
-<div class="gallery reveal"><figure><img src="public/logo.png" alt="DigiCraftora primary logo" loading="lazy" style="object-fit:contain;padding:22px;background:#02040a"><figcaption>Primary logo</figcaption></figure><figure><img src="public/logo-circle.png" alt="DigiCraftora circular logo" loading="lazy"><figcaption>Profile / social mark</figcaption></figure><figure><img src="public/founder.jpg" alt="DigiCraftora brand poster" loading="lazy"><figcaption>Brand poster</figcaption></figure></div>
-<a class="banner yt reveal" href="https://www.youtube.com/@USAMemeHub6" target="_blank" rel="noopener noreferrer" aria-label="Open DigiCraftora on YouTube"><img src="public/banner-youtube.jpg" alt="DigiCraftora YouTube channel banner: web design, digital tips and online business growth" width="1983" height="793" loading="lazy"></a></div></section>
-<section class="content" id="pricing"><div class="wrap"><div class="section-head"><div class="eyebrow">Starting prices</div><h2>Simple, transparent pricing</h2><p>Suggested starting ranges in INR. Final price depends on your requirements.</p></div><div class="prices">
-<div class="price"><h3>Landing Page</h3><strong>₹2,999 – ₹5,999</strong></div><div class="price"><h3>Business Website</h3><strong>₹6,999 – ₹14,999</strong></div><div class="price"><h3>E-commerce Website</h3><strong>₹14,999 – ₹34,999</strong></div><div class="price"><h3>Salon Booking Website</h3><strong>₹12,999 – ₹29,999</strong></div><div class="price"><h3>Basic Logo Design</h3><strong>₹499 – ₹999</strong></div><div class="price"><h3>Website Maintenance</h3><strong>₹999 – ₹2,999 / month</strong></div></div><p class="note">Domain, hosting, premium software, payment gateway fees and advertising spend are separate.</p></div></section>
-<section class="content soft" id="faq"><div class="wrap"><div class="section-head"><div class="eyebrow">Need to know</div><h2>Frequently Asked Questions</h2></div><div class="faq"><details><summary>What services do you offer?</summary><p>Website design and development, graphic and logo design, SEO and digital marketing, and booking system development.</p></details><details><summary>How do I get a price?</summary><p>Contact us and describe your project. Pricing is confirmed after we understand your needs.</p></details><details><summary>Can I view this website offline?</summary><p>Yes. This is a static preview page. Some features such as real booking storage and the admin dashboard require the full application and database setup.</p></details></div></div></section>
-<section class="content soft" id="book"><div class="wrap"><div class="section-head"><div class="eyebrow">Book an Appointment</div><h2>Request your free consultation</h2><p>Fill in the details and send them to us on WhatsApp or email. We will confirm your time.</p></div>
-<div class="book"><form id="bf" novalidate>
-<div><label for="n">Full name *</label><input id="n" maxlength="100" autocomplete="name"><div class="err" data-e="n"></div></div>
-<div><label for="p">WhatsApp / phone *</label><input id="p" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="+91 ..."><div class="err" data-e="p"></div></div>
-<div><label for="e">Email *</label><input id="e" type="email" maxlength="254" autocomplete="email"><div class="err" data-e="e"></div></div>
-<div><label for="s">Service *</label><select id="s"><option value="">Select a service</option><option>Website Design &amp; Development</option><option>E-commerce Website</option><option>Salon Booking Website</option><option>Logo &amp; Graphic Design</option><option>Digital Marketing</option><option>SEO Services</option><option>Domain &amp; Hosting Setup</option><option>Other Digital Services</option></select><div class="err" data-e="s"></div></div>
-<div><label for="d">Preferred date *</label><input id="d" type="date"><div class="err" data-e="d"></div></div>
-<div><label for="t">Preferred time *</label><select id="t"><option value="">Select a time</option></select><div class="err" data-e="t"></div></div>
-<div class="full"><label for="m">Meeting method *</label><select id="m"><option>WhatsApp</option><option>Phone Call</option><option>Google Meet</option></select></div>
-<div class="full"><label for="x">Project description (optional)</label><textarea id="x" rows="4" maxlength="500"></textarea></div>
-<div class="full"><button class="btn" type="submit">Send Request on WhatsApp ↗</button></div>
-<div class="full" style="text-align:center"><a href="#" id="mail" style="color:var(--purple);font-weight:700;font-size:14px">Or send by email instead</a></div>
-<p class="note full" id="msg" role="status">Clicking opens WhatsApp or your email app with your details filled in. Your request is only sent when you press Send there. Times are suggestions; we confirm the final slot.</p>
-</form></div></div></section>
-<section class="content" id="contact"><div class="wrap"><div class="cta"><h2>Ready to grow your business online?</h2><p>Tell us about your idea and let's discuss the next steps.</p><a class="btn" style="background:#fff;color:#1b1247" href="https://wa.me/917427979100?text=Hello%20DigiCraftora%2C%20I%20would%20like%20to%20enquire%20about%20your%20digital%20services.">Contact on WhatsApp ↗</a><p class="note" style="color:#d8dcf8">Email: webcraftbd777@gmail.com · Phone: +91 7427979100</p><div class="social"><a href="https://www.instagram.com/digicraftora" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a><a href="https://www.facebook.com/share/1CSWzyyHp7/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg><span>Facebook</span></a><a href="https://www.youtube.com/@USAMemeHub6" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg><span>YouTube</span></a><a href="https://maps.app.goo.gl/Ru9A2eN3WLRL6eTd7" target="_blank" rel="noopener noreferrer" aria-label="Google Maps" title="Google Maps"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Google Maps</span></a></div></div></div></section>
-</main>
-<footer><div class="wrap foot"><a class="brand" href="#home" style="color:white"><img src="public/logo-mark.png" alt="" onerror="this.style.display='none'"><b style="font-weight:inherit"><span>Digi</span>Craftora</b></a><div class="social"><a href="https://www.instagram.com/digicraftora" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a><a href="https://www.facebook.com/share/1CSWzyyHp7/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg><span>Facebook</span></a><a href="https://www.youtube.com/@USAMemeHub6" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg><span>YouTube</span></a><a href="https://maps.app.goo.gl/Ru9A2eN3WLRL6eTd7" target="_blank" rel="noopener noreferrer" aria-label="Google Maps" title="Google Maps"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Google Maps</span></a></div><small>© <span id="year"></span> DigiCraftora · Design • Develop • Grow</small><small>Static preview — bookings are sent via WhatsApp/email.</small></div></footer>
-<a class="wa" href="https://wa.me/917427979100?text=Hello%20DigiCraftora%2C%20I%20would%20like%20to%20enquire%20about%20your%20digital%20services." aria-label="Chat on WhatsApp">☏ WhatsApp</a>
-<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
-<script>
-(function(){var $=function(i){return document.getElementById(i)},d=$('d'),t=$('t');
-var pad=function(n){return String(n).padStart(2,'0')};
-function iso(x){return x.getFullYear()+'-'+pad(x.getMonth()+1)+'-'+pad(x.getDate())}
-var now=new Date();d.min=iso(now);var mx=new Date();mx.setDate(mx.getDate()+60);d.max=iso(mx);
-for(var h=10;h<18;h++)['00','30'].forEach(function(m){var o=document.createElement('option');o.textContent=pad(h)+':'+m;t.appendChild(o)});
-function err(k,v){document.querySelector('[data-e="'+k+'"]').textContent=v||''}
-function build(){var v={n:$('n').value.trim(),p:$('p').value.trim(),e:$('e').value.trim(),s:$('s').value,d:d.value,t:t.value},ok=true;
-['n','p','e','s','d','t'].forEach(function(k){err(k,'')});
-if(v.n.length<2){err('n','Enter your full name');ok=false}
-if(!/^\+?[0-9 ()-]{7,20}$/.test(v.p)){err('p','Enter a valid phone number');ok=false}
-if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.e)){err('e','Enter a valid email');ok=false}
-if(!v.s){err('s','Select a service');ok=false}
-if(!v.d||v.d<d.min||v.d>d.max){err('d','Choose a date from today up to 60 days ahead');ok=false}
-else if(new Date(v.d+'T12:00:00').getDay()===0){err('d','We are closed on Sundays, please pick another day');ok=false}
-if(!v.t){err('t','Select a time');ok=false}
-if(!ok)return null;
-return 'Hello DigiCraftora, I would like to book an appointment.\n\nName: '+v.n+'\nPhone: '+v.p+'\nEmail: '+v.e+'\nService: '+v.s+'\nPreferred date: '+v.d+'\nPreferred time: '+v.t+' (IST)\nMeeting method: '+$('m').value+(($('x').value.trim())?'\nProject: '+$('x').value.trim():'')}
-$('bf').addEventListener('submit',function(ev){ev.preventDefault();var m=build();if(!m)return;window.open('https://wa.me/917427979100?text='+encodeURIComponent(m),'_blank','noopener')});
-$('mail').addEventListener('click',function(ev){ev.preventDefault();var m=build();if(!m)return;location.href='mailto:webcraftbd777@gmail.com?subject='+encodeURIComponent('Appointment request')+'&body='+encodeURIComponent(m)});
-})();
-</script>
-<script>(function(){var d=document.documentElement;d.classList.add('js');var h=document.querySelector('header');
-function sc(){h.classList.toggle('scrolled',scrollY>8)}sc();addEventListener('scroll',sc,{passive:true});
-var els=[].slice.call(document.querySelectorAll('.reveal,.section-head,.step,.feature,.price,.founder,.cta'));els.forEach(function(e){e.classList.add('reveal')});
-if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion:reduce)').matches){els.forEach(function(e){e.classList.add('in')});return}
-var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});els.forEach(function(e){io.observe(e)});
-setTimeout(function(){els.forEach(function(e){e.classList.add('in')})},4000)})();</script>
-</body></html>

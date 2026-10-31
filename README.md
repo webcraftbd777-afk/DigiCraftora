@@ -1,71 +1,142 @@
-# DigiCraftora: Online Appointment Booking
+# DigiCraftora - Digital Agency Appointment Booking System
 
-Next.js 14 (App Router, TypeScript) + Tailwind + Supabase (PostgreSQL and Auth). Customers book consultations online; the owner manages everything from a protected admin dashboard. UI languages: English, हिन्दी, বাংলা.
+Official, production-grade full-stack web application for **DigiCraftora** — Digital Engineering & Growth Consulting Agency founded and led by **Mustafizur Rahaman**.
 
-## What is implemented
+---
 
-- Public: home, `/book`, `/booking/confirmation`, `/manage` (look up / request cancel or reschedule), `/privacy`, `/terms`, custom 404.
-- Admin: `/admin/login`, `/admin` (counts, search, filters, approve/reject/cancel/reschedule/complete with confirmation, schedule settings, blocked slots).
-- API: `GET /api/slots`, `POST /api/bookings`, `GET /api/bookings/lookup`, `POST /api/bookings/cancel-request`, `POST /api/bookings/reschedule-request`, `/api/admin/*` (appointments, schedule, blocked-slots, login, logout, me).
-- Double-booking prevention by a PostgreSQL **exclusion constraint** inside `create_booking()` / `reschedule_appointment()`.
-- Slot occupancy rule: `pending`, `approved`, `reschedule_requested` hold the slot; `rejected`, `cancelled`, `completed` release it.
-- Management tokens are random and stored only as a hash; booking references are non-guessable.
-- RLS enabled on every table with no public policies. Public traffic goes through server routes using the service-role key.
-- Admin auth: Supabase Auth password sign-in, httpOnly cookies, server-side `admin_users` check on **every** admin endpoint, same-origin check on mutations, login rate limit.
+## 🌟 Key Features
 
-Not implemented: email notifications (no provider is wired up, so the app never claims an email was sent). WhatsApp links only open a chat; they do not send anything automatically.
+- **Strategic Appointment Booking**: Complete consultation workflow with date picker, open slot filtering, double-booking prevention, meeting type selection (Google Meet, WhatsApp Call, Direct Cellular Call), and unique booking references (`DC-XXXX`).
+- **Client Booking Tracking & Self-Service**: Real-time appointment lookup by reference code or phone/email, with client-side reschedule and cancellation requests.
+- **Agency Services & Rate Matrix**: High-ticket portfolio showcasing Website Design, E-Commerce, Custom Web Apps, SEO, Digital Marketing, AI Automation, and UI/UX Design with live pricing and timeline estimates.
+- **Executive Admin Portal**: Protected console for the DigiCraftora team to view all bookings, update appointment statuses (`confirmed`, `rescheduled`, `cancelled`, `completed`), manage booking rules, and set emergency lockdowns.
+- **Multilingual Localization**: Seamless language switching between English (`en`), Hindi (`hi`), and Bengali (`bn`).
+- **Interactive Map & Social Integration**: Real office location on Google Maps, direct WhatsApp floating dialer (`+91 7427979100`), Instagram, Facebook, and YouTube social channels.
+- **Full-Stack Architecture**: React 19 frontend seamlessly paired with an Express.js API backend and JSON file-based persistent data store (`data/appointments.json`, `data/rules.json`).
 
-## Local development
+---
+
+## 🚀 Quick Start (Local Development)
+
+### 1. Prerequisites
+- **Node.js**: Version 18.0 or higher (Node 20+ recommended)
+- **npm** (or `pnpm` / `yarn` / `bun`)
+
+### 2. Installation
+Extract the downloaded ZIP archive into a folder of your choice and open your terminal inside the project directory:
 
 ```bash
+# Navigate to the project root
+cd digicraftora-website
+
+# Install all project dependencies
 npm install
-cp .env.example .env.local      # fill in the Supabase values
-npm run dev                     # http://localhost:3000
 ```
 
-Checks: `npm run lint && npm run typecheck && npm test && npm run build`
+### 3. Environment Variables
+Create your local `.env` configuration file from the provided `.env.example`:
 
-## Supabase setup
+```bash
+cp .env.example .env
+```
 
-1. Create a project at supabase.com.
-2. SQL editor: run `supabase/migrations/001_booking.sql` (safe to re-run).
-3. Project Settings > API: copy the URL, anon key and service-role key into `.env.local`.
-4. **Create the first admin** (there is no public registration): Authentication > Users > Add user (email + password), then run:
-   ```sql
-   insert into admin_users (user_id) select id from auth.users where email = 'YOUR_EMAIL';
-   ```
-5. Defaults in `booking_settings` / `business_hours` are **placeholders** (Mon-Sat 10:00-18:00, 30 min slots, Asia/Kolkata). Set your real hours in the admin Schedule panel.
+*(Note: The application runs with sensible defaults out of the box. You only need to add external keys if you plan to enable external cloud services).*
 
-## Tests
+### 4. Start the Development Server
 
-- `npm test` runs unit tests (validation, slot generation, timezone, references, rate limit, admin auth, i18n, booking service with a fake DB).
-- Integration tests (`tests/integration/database.test.ts`) run only if `TEST_SUPABASE_*` variables are set. Use a **separate** Supabase project; they create and delete only rows with reference prefix `DC-TEST`.
+```bash
+npm run dev
+```
 
-## Deploy (Vercel)
+The Express API backend and Vite frontend will start together on:
+👉 **`http://localhost:3000`**
 
-1. Push the repo to GitHub and import it in Vercel.
-2. Add the four variables from `.env.example` under Settings > Environment Variables (Production). Mark the service-role key as sensitive.
-3. Deploy. Then open `/book` and `/admin/login` on the live URL.
+Open `http://localhost:3000` in your browser.
 
-### Custom domain (DigiCraftora.com)
+---
 
-In Vercel > Project > Settings > Domains add `digicraftora.com` and `www.digicraftora.com`. At your DNS provider create the records Vercel shows for your project (typically an `A` record for the apex and a `CNAME` for `www` pointing to Vercel). Use the values from the Vercel dashboard, as they can change. HTTPS is issued automatically. Set `NEXT_PUBLIC_SITE_URL=https://digicraftora.com` and redeploy.
+## 🛠️ Production Build & Deployment
 
-## Production launch checklist
+To generate an optimized production bundle:
 
-- [ ] Migration applied; first admin created; admin login works.
-- [ ] Real business hours, slot length, notice and advance limits set.
-- [ ] Service-role key only in server env vars (not `NEXT_PUBLIC_*`, not committed).
-- [ ] Place logo at `public/logo.png` (optional; text logo is used otherwise).
-- [ ] Place a real booking end to end: pending > admin approve > slot disappears from `/book`.
-- [ ] Try cancel and reschedule from `/manage`; confirm the slot is released.
-- [ ] Confirm an anonymous request to `/api/admin/appointments` returns 401.
-- [ ] Hindi and Bengali text reviewed by a native speaker.
-- [ ] Privacy Policy and Terms reviewed against your actual practices.
-- [ ] Consider an external rate limiter (see limitations) and Supabase backups.
+```bash
+# Compile and bundle the React client into the dist/ directory
+npm run build
 
-## Known limitations
+# Start the production Express server
+npm start
+```
 
-- The in-memory rate limiter is per server instance and only slows abuse on serverless hosts. Use an external store (e.g. Upstash Redis) for strong limits.
-- No confirmation emails (see above).
-- Hindi/Bengali translations were not natively reviewed.
+---
+
+## 📁 Project Structure
+
+```plaintext
+├── .env.example           # Example environment variables template
+├── .gitignore             # Standard git exclusions (node_modules, build, .env)
+├── index.html             # HTML entry point with metadata, OG tags, and Google Fonts
+├── metadata.json          # Project configuration metadata
+├── package.json           # Package dependencies, build scripts, and engine specs
+├── README.md              # Project documentation and local setup guide
+├── server.ts              # Express.js REST API server with slot engine and Vite middleware
+├── tsconfig.json          # TypeScript compiler configuration
+├── vite.config.ts         # Vite configuration with Tailwind CSS v4 & React plugin
+├── data/                  # Persistent data directory
+│   ├── appointments.json  # Seed and active appointment records
+│   └── rules.json         # Business hours, booking slots, and calendar rules
+├── public/                # Static public assets (images, logos, founder portraits)
+│   ├── founder.jpg
+│   ├── founder-hero.jpg
+│   └── founder-avatar.jpg
+└── src/                   # React 19 frontend source code
+    ├── main.tsx           # React DOM root entry point
+    ├── App.tsx            # Main application coordinator with tab routing
+    ├── index.css          # Global styling with Tailwind CSS v4 imports
+    ├── assets/            # High-resolution images and portrait assets
+    ├── components/        # Reusable UI components
+    │   ├── BookingConfirmationModal.tsx
+    │   ├── DigiCraftoraBanner.tsx
+    │   ├── DigiCraftoraLogo.tsx
+    │   ├── FloatingWhatsApp.tsx
+    │   ├── Footer.tsx
+    │   ├── FounderHeroCard.tsx
+    │   ├── GoogleMapWidget.tsx
+    │   └── Header.tsx
+    ├── data/              # Static frontend definitions
+    │   ├── servicesData.ts # Service packages, pricing, and features
+    │   └── translations.ts # English, Hindi, and Bengali localization strings
+    ├── types/             # Shared TypeScript interface definitions
+    │   └── index.ts
+    └── views/             # Full page views
+        ├── AdminPortalView.tsx     # Admin dashboard & management
+        ├── BookAppointmentView.tsx # Interactive slot booking form
+        ├── DeploymentGuideView.tsx # Supabase SQL schema & deployment blueprint
+        ├── HomeView.tsx            # Hero, services overview, and testimonials
+        ├── LoginView.tsx           # Authentication modal (Admin & Client)
+        ├── ServicesRatesView.tsx   # Detailed rates and package matrix
+        └── TrackBookingView.tsx    # Appointment lookup and management
+```
+
+---
+
+## 🔐 Admin Console Credentials (Local Demo)
+
+To access the Admin Portal (`/admin-portal` or via the top navigation):
+- **Email**: `webcraftbd777@gmail.com` *(or `admin@digicraftora.com`)*
+- **Password**: `digiadmin2025` *(or `admin`)*
+
+---
+
+## 📞 Agency Contact Information
+
+- **Founder & CEO**: Mustafizur Rahaman
+- **Official WhatsApp**: [+91 7427979100](https://wa.me/917427979100)
+- **Direct Phone**: `+91 7427979100` / `7427979100`
+- **Email**: `webcraftbd777@gmail.com`
+- **Instagram**: [@digicraftora](https://www.instagram.com/digicraftora?psln=MXd3bWpwZDNoa3RsZQ==)
+- **Facebook**: [DigiCraftora](https://www.facebook.com/share/1CSWzyyHp7/)
+- **YouTube**: [USAMemeHub6](https://www.youtube.com/@USAMemeHub6)
+- **Location**: [Find us on Google Maps](https://maps.app.goo.gl/Ru9A2eN3WLRL6eTd7)
+
+---
+*Built with React 19, TypeScript, Tailwind CSS, and Express.*

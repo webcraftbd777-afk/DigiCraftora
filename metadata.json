@@ -1,0 +1,8 @@
+{
+  "name": "Remix DigiCraftora - Digital Agency Appointment Booking System",
+  "description": "Modern responsive online appointment booking system for DigiCraftora digital services agency with slot allocation, double-booking prevention, multi-language support, tracking, and secure admin console.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
