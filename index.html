@@ -1,22 +1,113 @@
-<!doctype html>
-<html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/digicraftora-logo.png" />
-    <title>DigiCraftora - Digital Agency Appointment Booking System</title>
-    <meta name="description" content="Design • Develop • Grow. Schedule your strategic engineering and growth consultation with DigiCraftora." />
-    <meta property="og:title" content="DigiCraftora - Digital Agency Appointment Booking System" />
-    <meta property="og:description" content="Design • Develop • Grow. Schedule your strategic engineering and growth consultation with DigiCraftora." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
-  </head>
-  <body class="bg-[#131317] text-[#e4e1e7] min-h-screen antialiased selection:bg-[#4cd7f6]/30 selection:text-white">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Once Again Unisex Salon | Hair, Skin &amp; Spa</title>
+<meta name="description" content="Once Again Unisex Salon: haircut, hair colour, facials, hair spa, beard styling and spa treatments for men and women. Call or WhatsApp to book.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Once Again Unisex Salon">
+<meta property="og:description" content="Hair, skin and spa care for men and women.">
+<meta property="og:image" content="images/hero.jpg">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#home" aria-label="Once Again Unisex Salon"><img src="images/logo.png" alt="Once Again Unisex Salon" height="44"></a>
+    <nav id="nav" aria-label="Main">
+      <a href="#about" data-i18n="about"></a>
+      <a href="#services" data-i18n="services"></a>
+      <a href="#prices" data-i18n="prices"></a>
+      <a href="#gallery" data-i18n="gallery"></a>
+      <a href="#booking" data-i18n="booking"></a>
+      <a href="#contact" data-i18n="contact"></a>
+    </nav>
+    <select id="lang" aria-label="Language"><option value="en">English</option><option value="hi">हिन्दी</option><option value="bn">বাংলা</option></select>
+    <button id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">☰</button>
+  </div>
+</header>
 
+<main>
+<section id="home" class="hero">
+  <div class="wrap">
+    <h1 data-i18n="h1"></h1>
+    <p data-i18n="sub"></p>
+    <a class="btn" href="#booking" data-i18n="book"></a>
+    <a class="btn o" href="#services" data-i18n="explore"></a>
+  </div>
+</section>
+
+<section id="about"><div class="wrap about">
+  <img src="images/storefront.jpg" alt="Once Again Unisex Salon shopfront" loading="lazy">
+  <div><h2 data-i18n="about"></h2><p data-i18n="aboutP"></p></div>
+</div></section>
+
+<section id="services" class="alt"><div class="wrap">
+  <h2 data-i18n="services"></h2>
+  <div class="cards">
+    <div class="card"><h3 data-i18n="s1"></h3><p data-i18n="d1"></p></div>
+    <div class="card"><h3 data-i18n="s2"></h3><p data-i18n="d2"></p></div>
+    <div class="card"><h3 data-i18n="s3"></h3><p data-i18n="d3"></p></div>
+    <div class="card"><h3 data-i18n="s4"></h3><p data-i18n="d4"></p></div>
+    <div class="card"><h3 data-i18n="s5"></h3><p data-i18n="d5"></p></div>
+    <div class="card"><h3 data-i18n="s6"></h3><p data-i18n="d6"></p></div>
+  </div>
+</div></section>
+
+<section id="prices"><div class="wrap">
+  <h2 data-i18n="prices"></h2>
+  <div id="tabs" class="tabs"></div>
+  <ul id="plist"></ul>
+  <p class="note" data-i18n="pnote"></p>
+</div></section>
+
+<section id="gallery" class="alt"><div class="wrap">
+  <h2 data-i18n="gallery"></h2>
+  <div id="gal" class="g"></div>
+</div></section>
+
+<section id="booking"><div class="wrap">
+  <h2 data-i18n="book"></h2>
+  <form id="bf" novalidate>
+    <label><span data-i18n="fName"></span><input id="name" name="name" autocomplete="name" required aria-describedby="e-name"><span class="err" id="e-name"></span></label>
+    <label><span data-i18n="fPhone"></span><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="e-phone"><span class="err" id="e-phone"></span></label>
+    <label><span data-i18n="fSvc"></span><select id="service" name="service" required aria-describedby="e-service"></select><span class="err" id="e-service"></span></label>
+    <div class="row">
+      <label><span data-i18n="fDate"></span><input id="date" name="date" type="date" required aria-describedby="e-date"><span class="err" id="e-date"></span></label>
+      <label><span data-i18n="fTime"></span><input id="time" name="time" type="time" required aria-describedby="e-time"><span class="err" id="e-time"></span></label>
+    </div>
+    <label><span data-i18n="fMsg"></span><textarea id="message" name="message" rows="3"></textarea></label>
+    <button class="btn" type="submit" data-i18n="submit"></button>
+    <div id="status" role="status" aria-live="polite"></div>
+  </form>
+</div></section>
+
+<section id="contact" class="alt"><div class="wrap">
+  <h2 data-i18n="contact"></h2>
+  <div class="contact">
+    <div class="card"><h3 data-i18n="call"></h3>
+      <p><a class="btn" href="tel:+919823687619">+91 98236 87619</a> <a class="btn o" href="https://wa.me/919823687619" target="_blank" rel="noopener" data-i18n="wa"></a></p>
+      <p><a class="btn" href="tel:+918668814955">+91 86688 14955</a> <a class="btn o" href="https://wa.me/918668814955" target="_blank" rel="noopener" data-i18n="wa"></a></p>
+    </div>
+    <div class="card"><h3 data-i18n="addr"></h3><p data-i18n="addrV"></p><h3 data-i18n="hrs"></h3><p data-i18n="hrsV"></p>
+      <a class="btn" data-link="maps" target="_blank" rel="noopener" data-i18n="dir"></a></div>
+    <div class="card"><h3 data-i18n="follow"></h3>
+      <p><a class="btn o" data-link="fb1" target="_blank" rel="noopener">Facebook 1</a> <a class="btn o" data-link="fb2" target="_blank" rel="noopener">Facebook 2</a> <a class="btn o" data-link="jd" target="_blank" rel="noopener">Justdial</a></p></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <strong class="brand">Once Again Unisex Salon</strong>
+  <div><a href="#about" data-i18n="about"></a><a href="#services" data-i18n="services"></a><a href="#prices" data-i18n="prices"></a><a href="#gallery" data-i18n="gallery"></a><a href="#booking" data-i18n="booking"></a><a href="#contact" data-i18n="contact"></a></div>
+  <div><a href="tel:+919823687619">+91 98236 87619</a><a href="tel:+918668814955">+91 86688 14955</a></div>
+  <div><a data-link="fb1" target="_blank" rel="noopener">Facebook 1</a><a data-link="fb2" target="_blank" rel="noopener">Facebook 2</a><a data-link="jd" target="_blank" rel="noopener">Justdial</a><a data-link="maps" target="_blank" rel="noopener">Google Maps</a></div>
+  <small>© <span id="yr"></span> Once Again Unisex Salon. <span data-i18n="rights"></span></small>
+</div></footer>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Photo"><button id="lbx" type="button" aria-label="Close">✕</button><img id="lbi" alt=""></div>
+<script src="script.js"></script>
+</body>
+</html>
